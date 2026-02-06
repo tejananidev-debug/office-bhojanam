@@ -1126,30 +1126,61 @@ h2 {
   background: var(--brand-red);
   color: white;
 }
+/* =========================
+   MOBILE NAVBAR FIX
+   ========================= */
 @media (max-width: 768px) {
 
-  .rules-section {
-    padding: 60px 16px;
-    background: #f8f8f8;
+  .nav-container {
+    flex-direction: column;
+    gap: 12px;
   }
+
+  .nav-left {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-right {
+    width: 100%;
+  }
+
+  .nav-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    text-align: center;
+  }
+
+  .nav-links li a {
+    font-size: 14px;
+  }
+}
+/* =========================
+   RULES SECTION MOBILE POLISH
+   ========================= */
+@media (max-width: 768px) {
 
   .rules-card {
-    padding: 24px 18px;
+    padding: 22px 18px;
     border-radius: 14px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  }
-
-  .rules-list {
-    padding-left: 0;
-    margin: 0;
   }
 
   .rules-list li {
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 14px;
-    border-left: none;
-    padding-left: 0;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .rules-list li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .rules-list strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 15px;
   }
 }
 
