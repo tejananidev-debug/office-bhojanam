@@ -1126,14 +1126,17 @@ h2 {
   background: var(--brand-red);
   color: white;
 }
-/* =========================
-   FIX RULES ALIGNMENT (MOBILE)
-   ========================= */
 @media (max-width: 768px) {
+
+  .rules-section {
+    padding: 60px 16px;
+    background: #f8f8f8;
+  }
 
   .rules-card {
     padding: 24px 18px;
-    text-align: left;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
   }
 
   .rules-list {
@@ -1142,31 +1145,11 @@ h2 {
   }
 
   .rules-list li {
-    padding-left: 0;
-    margin-left: 0;
     font-size: 14px;
     line-height: 1.6;
-  }
-
-  /* REMOVE LEFT BORDER / LINE EFFECT */
-  .rules-list li::before {
-    display: none;
-  }
-
-  /* If you used border-left anywhere */
-  .rules-list li {
+    margin-bottom: 14px;
     border-left: none;
+    padding-left: 0;
   }
 }
-/* FORCE RULES VISIBILITY (MOBILE FIX) */
-@media (max-width: 768px) {
-  #rules {
-    display: block !important;
-    visibility: visible !important;
-    opacity: 1 !important;
-    height: auto !important;
-    overflow: visible !important;
-  }
-}
-
 
