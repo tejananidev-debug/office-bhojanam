@@ -1,0 +1,1128 @@
+:root {
+  --brand-red: #8D230F;
+  --off-white: #FCF9F7;
+  --dark-text: #2B2D42;
+  --gray: #666;
+}
+
+/* Base Reset */
+* {
+    text-transform: capitalize;
+
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif; /* Clean, modern font */
+}
+
+body {
+  background-color: var(--off-white);
+}
+
+/* Navbar Logic */
+.navbar {
+  background-color: #ffffff;
+  padding: 15px 0;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between; /* Pushes LEFT and RIGHT to opposite ends */
+  align-items: center;
+  padding: 0 40px;
+}
+
+/* LEFT SIDE: Logo & Text */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  height: 60px; /* Adjusted size for better visibility */
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text h1 {
+  font-size: 1.5rem;
+  color: var(--brand-red);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.logo-text p {
+  font-size: 0.75rem;
+  color: var(--gray);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* RIGHT SIDE: Navigation */
+.nav-right {
+  display: flex;
+  justify-content: flex-end; /* Ensures items stay to the right */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px; /* Spacing between menu items */
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--dark-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: var(--brand-red);
+}
+
+/* Responsive: Stack them on mobile */
+@media (max-width: 900px) {
+  .nav-container {
+    flex-direction: column;
+    padding: 15px;
+  }
+  
+  .nav-right {
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .nav-links {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+/* Home Section Styles */
+.home {
+  padding: 80px 0;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.home-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr; /* Content gets more space than image */
+  align-items: center;
+  gap: 40px;
+}
+
+/* Text Content */
+.badge {
+  background-color: rgba(141, 35, 15, 0.1);
+  color: var(--brand-red);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.home-content h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  color: var(--dark-text);
+  margin-bottom: 25px;
+}
+
+.home-content h1 span {
+  color: var(--brand-red);
+}
+
+.home-content p {
+  font-size: 1.15rem;
+  color: var(--gray);
+  margin-bottom: 40px;
+  max-width: 550px;
+  line-height: 1.7;
+}
+
+
+/* Buttons */
+.home-btns {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.btn-main {
+  background-color: var(--brand-red);
+  color: white;
+  padding: 18px 35px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 10px 20px rgba(141, 35, 15, 0.2);
+}
+
+.btn-main:hover {
+  background-color: #6d1b0b;
+  transform: translateY(-3px);
+}
+
+.btn-sub {
+  border: 2px solid var(--brand-red);
+  color: var(--brand-red);
+  padding: 18px 35px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.btn-sub:hover {
+  background-color: var(--brand-red);
+  color: white;
+}
+
+/* Image Section */
+.home-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.floating-img {
+  width: 100%;
+  max-width: 500px;
+  z-index: 2;
+  filter: drop-shadow(20px 20px 50px rgba(0,0,0,0.15));
+  animation: float 6s ease-in-out infinite;
+}
+
+.image-bg-blob {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background-color: var(--brand-red);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  opacity: 0.1;
+  z-index: 1;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+  .home-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding-top: 40px;
+  }
+  
+  .home-content h1 { font-size: 2.8rem; }
+  
+  .home-btns {
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .home-content p { margin: 0 auto 40px; }
+}
+.section-subtitle {
+  color: var(--gray);
+  margin-bottom: 50px;
+}
+
+
+/* Motto Section Styling */
+.motto {
+  background-color: #ffffff;
+  padding: 80px 0;
+}
+
+.motto-header {
+  margin-bottom: 50px;
+}
+
+.motto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding-top: 20px;
+}
+
+.motto-card {
+  padding: 45px 35px;
+  background: var(--off-white);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  text-align: center;
+}
+
+.motto-card:hover {
+  transform: translateY(-10px);
+  background: #fff;
+  border-color: var(--brand-red);
+  box-shadow: 0 15px 35px rgba(141, 35, 15, 0.08);
+}
+
+.motto-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 15px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.motto-card h3 {
+  color: var(--dark-text);
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.motto-card p {
+  color: var(--gray);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Subsection Badge Adjustment */
+.motto .badge {
+  background-color: rgba(141, 35, 15, 0.1);
+  color: var(--brand-red);
+}
+/* Menu Section Styles */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr; /* Current meal gets more prominence */
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.menu-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  text-align: left;
+}
+
+.menu-tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--brand-red);
+  color: white;
+  padding: 5px 12px;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  z-index: 10;
+}
+
+.menu-image-container img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.menu-info {
+  padding: 25px;
+}
+
+.menu-info h3 {
+  color: var(--dark-text);
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.menu-info p {
+  color: var(--gray);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.diet-icons {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #2D5A27; /* Healthy Green */
+}
+
+/* Coming Soon Styling */
+.coming-soon {
+  opacity: 0.7;
+  filter: grayscale(0.5);
+  background: #f1f1f1;
+  justify-content: center;
+}
+
+.coming-soon .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+.coming-soon .overlay span {
+  background: var(--dark-text);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transform: rotate(-10deg);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* PRICING SECTION */
+.pricing-section {
+  padding: 80px 20px;
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.pricing-subtext {
+  max-width: 600px;
+  margin: 10px auto 40px;
+  color: #555;
+  font-size: 16px;
+}
+
+.pricing-note {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 40px;
+}
+
+/* CARDS LAYOUT */
+.pricing-cards {
+  display: flex;
+  gap: 28px;
+  max-width: 1100px;
+  margin: auto;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* CARD */
+.pricing-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 32px 26px;
+  width: 320px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  position: relative;
+  text-align: left;
+}
+
+/* HIGHLIGHTED CARD */
+.pricing-card.highlight {
+  border: 2px solid #7A1E1E;
+  transform: scale(1.05);
+}
+
+/* BADGES */
+.plan-type {
+  font-size: 12px;
+  font-weight: 600;
+  color: #7A1E1E;
+  text-transform: uppercase;
+}
+
+.badge-best {
+  position: absolute;
+  top: -14px;
+  right: 20px;
+  background: #7A1E1E;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+/* TEXT */
+.pricing-card h3 {
+  margin: 10px 0;
+  font-size: 22px;
+}
+
+.price {
+  font-size: 36px;
+  font-weight: 700;
+  color: #7A1E1E;
+}
+
+.per-meal {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 18px;
+}
+
+/* LIST */
+.pricing-card ul {
+  padding-left: 18px;
+  margin-bottom: 24px;
+}
+
+.pricing-card li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: #444;
+}
+
+/* BUTTONS */
+.btn-main {
+  display: block;
+  text-align: center;
+  background: #7A1E1E;
+  color: white;
+  padding: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-outline {
+  display: block;
+  text-align: center;
+  border: 2px solid #7A1E1E;
+  color: #7A1E1E;
+  padding: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* FOOTER NOTE */
+.pricing-footer-note {
+  margin-top: 30px;
+  font-size: 13px;
+  color: #777;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .pricing-card.highlight {
+    transform: scale(1);
+  }
+}
+.rules-list {
+  max-width: 700px;
+  margin: 30px auto;
+  padding-left: 20px;
+}
+
+.rules-list li {
+  margin-bottom: 14px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.rules-subtext {
+  text-align: center;
+  max-width: 600px;
+  margin: 10px auto 20px;
+  color: #666;
+}
+
+.rules-note {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  margin-top: 30px;
+}
+.contact-box {
+  background: #f8f8f8;
+  padding: 30px;
+  border-radius: 14px;
+  max-width: 500px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.contact-main-text {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #444;
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  background: #25D366;
+  color: white;
+  padding: 14px 26px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.contact-alt {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
+
+.contact-note {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  margin-top: 10px;
+}
+.about-section {
+  max-width: 800px;
+  margin: auto;
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+.about-section h2 {
+  color: #7A1E1E;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-section p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 18px;
+}
+
+.about-intro {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.about-closing {
+  margin-top: 30px;
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+  color: #7A1E1E;
+}
+.site-footer {
+  background: #7A1E1E;
+  color: #ffffff;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.footer-brand {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.footer-links {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 4px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-note {
+  font-size: 13px;
+  opacity: 0.8;
+}
+/* CONTACT SECTION */
+.contact-section {
+  padding: 90px 20px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.contact-section h2 {
+  color: #7A1E1E;
+  margin-bottom: 10px;
+}
+
+.contact-intro {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: #555;
+  font-size: 16px;
+}
+
+/* CONTACT CARD */
+.contact-card {
+  max-width: 480px;
+  margin: auto;
+  background: #f9f9f9;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.contact-main-text {
+  font-size: 16px;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+/* BULLET POINTS */
+.contact-points {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 26px;
+}
+
+.contact-points li {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* WHATSAPP BUTTON */
+.whatsapp-cta {
+  display: inline-block;
+  background: #25D366;
+  color: white;
+  padding: 16px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+/* TIMING */
+.contact-timing {
+  font-size: 13px;
+  color: #777;
+}
+
+/* EMAIL */
+.contact-email {
+  margin-top: 28px;
+  font-size: 14px;
+  color: #555;
+}
+/* RULES SECTION */
+.rules-section {
+  padding: 90px 20px;
+  background: #f8f8f8;
+  text-align: center;
+}
+
+.rules-section h2 {
+  color: #7A1E1E;
+  margin-bottom: 10px;
+}
+
+.rules-intro {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* RULES CARD */
+.rules-card {
+  max-width: 720px;
+  margin: auto;
+  background: #ffffff;
+  padding: 40px 32px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  text-align: left;
+}
+
+/* LIST */
+.rules-list {
+  padding-left: 20px;
+}
+
+.rules-list li {
+  margin-bottom: 16px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* NOTE */
+.rules-note {
+  max-width: 650px;
+  margin: 30px auto 0;
+  font-size: 14px;
+  color: #666;
+}
+/* FAQ SECTION */
+.faq-section {
+  padding: 90px 20px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.faq-section h2 {
+  color: #7A1E1E;
+  margin-bottom: 10px;
+}
+
+.faq-intro {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* FAQ LIST */
+.faq-list {
+  max-width: 800px;
+  margin: auto;
+  text-align: left;
+}
+
+.faq-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.faq-item h3 {
+  font-size: 17px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.faq-item p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+
+/* --- 1. Global Variables & Reset --- */
+:root {
+  --brand-red: #8D230F;       /* Your chosen Terracotta Red */
+  --off-white: #FCF9F7;       /* Background for sections */
+  --dark-text: #2B2D42;       /* Primary text color */
+  --gray: #666666;            /* Subtext and secondary labels */
+  --whatsapp-green: #25D366;  /* Official WhatsApp color */
+  --transition: all 0.3s ease;
+}
+
+* {
+  
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #ffffff;
+  color: var(--dark-text);
+  line-height: 1.6;
+}
+
+/* --- 2. Typography Helpers --- */
+h2 {
+  font-size: 2.5rem;
+  color: var(--brand-red);
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.section-subtitle, .pricing-subtext, .rules-intro, .contact-intro, .faq-intro {
+  text-align: center;
+  color: var(--gray);
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1.1rem;
+}
+
+.badge-best {
+  background: var(--brand-red);
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* --- 3. Pricing Section (Unique Card Layout) --- */
+.pricing-section {
+  padding: 80px 5%;
+  background: #fff;
+}
+
+.pricing-cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.pricing-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding: 40px 30px;
+  width: 320px;
+  text-align: center;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.pricing-card.highlight {
+  border: 2px solid var(--brand-red);
+  position: relative;
+  box-shadow: 0 15px 30px rgba(141, 35, 15, 0.1);
+}
+
+.plan-type {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--gray);
+  letter-spacing: 1px;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--dark-text);
+  margin: 10px 0 0;
+}
+
+.per-meal {
+  color: var(--brand-red);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 25px;
+}
+
+.pricing-card ul {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 30px;
+  flex-grow: 1;
+}
+
+.pricing-card ul li {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  color: var(--gray);
+}
+
+.pricing-card ul li::before {
+  content: "✓";
+  color: var(--brand-red);
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+/* --- 4. Rules Section --- */
+.rules-section {
+  padding: 80px 5%;
+  background-color: var(--off-white);
+}
+
+.rules-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: white;
+  padding: 50px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.rules-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+  list-style: none;
+}
+
+.rules-list li {
+  padding: 15px;
+  border-left: 3px solid var(--brand-red);
+  background: #fdfdfd;
+}
+
+.rules-list strong {
+  display: block;
+  color: var(--brand-red);
+  margin-bottom: 5px;
+}
+
+/* --- 5. Contact & WhatsApp --- */
+.contact-section {
+  padding: 80px 5%;
+  text-align: center;
+}
+
+.contact-card {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  background: white;
+  border: 1px dashed var(--brand-red);
+  border-radius: 20px;
+}
+
+.whatsapp-cta {
+  display: inline-block;
+  background-color: var(--whatsapp-green);
+  color: white;
+  padding: 18px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin: 20px 0;
+  transition: var(--transition);
+}
+
+.whatsapp-cta:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+/* --- 6. FAQ Section --- */
+.faq-section {
+  padding: 80px 5%;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.faq-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: var(--dark-text);
+}
+
+/* --- 7. About & Footer --- */
+.about-section {
+  padding: 80px 5%;
+  background: var(--off-white);
+  text-align: center;
+}
+
+.about-section p {
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.site-footer {
+  background: var(--dark-text);
+  color: white;
+  padding: 50px 5%;
+  text-align: center;
+}
+
+.footer-links {
+  margin: 20px 0;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+  color: var(--brand-red);
+}
+
+/* --- 8. Buttons --- */
+.btn-main {
+  background: var(--brand-red);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  display: block;
+}
+
+.btn-outline {
+  border: 2px solid var(--brand-red);
+  color: var(--brand-red);
+  padding: 13px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  display: block;
+}
+
+.btn-outline:hover {
+  background: var(--brand-red);
+  color: white;
+}
