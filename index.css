@@ -1126,3 +1126,36 @@ h2 {
   background: var(--brand-red);
   color: white;
 }
+/* =========================
+   FIX RULES ALIGNMENT (MOBILE)
+   ========================= */
+@media (max-width: 768px) {
+
+  .rules-card {
+    padding: 24px 18px;
+    text-align: left;
+  }
+
+  .rules-list {
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .rules-list li {
+    padding-left: 0;
+    margin-left: 0;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* REMOVE LEFT BORDER / LINE EFFECT */
+  .rules-list li::before {
+    display: none;
+  }
+
+  /* If you used border-left anywhere */
+  .rules-list li {
+    border-left: none;
+  }
+}
+
