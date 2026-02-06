@@ -88,24 +88,23 @@ body {
 .nav-links li a:hover {
   color: var(--brand-red);
 }
+@media (max-width: 768px) {
 
-/* Responsive: Stack them on mobile */
-@media (max-width: 900px) {
   .nav-container {
     flex-direction: column;
-    padding: 15px;
+    gap: 10px;
   }
-  
-  .nav-right {
-    margin-top: 20px;
-    width: 100%;
-    justify-content: center;
-  }
-  
+
   .nav-links {
-    gap: 15px;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    text-align: center;
+  }
+
+  .nav-links li a {
+    font-size: 14px;
+    white-space: nowrap; /* 🔥 IMPORTANT */
   }
 }
 /* Home Section Styles */
@@ -572,6 +571,7 @@ body {
   color: #777;
   margin-top: 30px;
 }
+
 .contact-box {
   background: #f8f8f8;
   padding: 30px;
@@ -847,28 +847,8 @@ body {
 }
 
 
-/* --- 1. Global Variables & Reset --- */
-:root {
-  --brand-red: #8D230F;       /* Your chosen Terracotta Red */
-  --off-white: #FCF9F7;       /* Background for sections */
-  --dark-text: #2B2D42;       /* Primary text color */
-  --gray: #666666;            /* Subtext and secondary labels */
-  --whatsapp-green: #25D366;  /* Official WhatsApp color */
-  --transition: all 0.3s ease;
-}
 
-* {
-  
-  box-sizing: border-box;
-  font-family: 'Inter', -apple-system, sans-serif;
-  scroll-behavior: smooth;
-}
 
-body {
-  background-color: #ffffff;
-  color: var(--dark-text);
-  line-height: 1.6;
-}
 
 /* --- 2. Typography Helpers --- */
 h2 {
@@ -1011,6 +991,25 @@ h2 {
   color: var(--brand-red);
   margin-bottom: 5px;
 }
+@media (max-width: 768px) {
+
+  .rules-card {
+    max-width: 92%;
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .rules-list li {
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .rules-list li:last-child {
+    border-bottom: none;
+  }
+}
+
 
 /* --- 5. Contact & WhatsApp --- */
 .contact-section {
@@ -1125,62 +1124,5 @@ h2 {
 .btn-outline:hover {
   background: var(--brand-red);
   color: white;
-}
-/* =========================
-   MOBILE NAVBAR FIX
-   ========================= */
-@media (max-width: 768px) {
-
-  .nav-container {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .nav-left {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .nav-right {
-    width: 100%;
-  }
-
-  .nav-links {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
-    text-align: center;
-  }
-
-  .nav-links li a {
-    font-size: 14px;
-  }
-}
-/* =========================
-   RULES SECTION MOBILE POLISH
-   ========================= */
-@media (max-width: 768px) {
-
-  .rules-card {
-    padding: 22px 18px;
-    border-radius: 14px;
-  }
-
-  .rules-list li {
-    margin-bottom: 18px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid #eee;
-  }
-
-  .rules-list li:last-child {
-    border-bottom: none;
-    margin-bottom: 0;
-  }
-
-  .rules-list strong {
-    display: block;
-    margin-bottom: 4px;
-    font-size: 15px;
-  }
 }
 
